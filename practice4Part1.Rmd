@@ -1,0 +1,22 @@
+---
+title: "Practice 4 Part 1"
+author: "Hunter Goehring"
+date: "2023-04-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+av <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
+head(av)
+library(tidyverse)
+
+deaths = av %>% gather(key = "Death", value = Time, 11,13,15,17,19) %>% mutate(Time = parse_number(Death))
+head(deaths)
+
+deaths = deaths %>% gather(key = "Return", value = Time, 11:15) %>% mutate(Time = parse_number(Return))
+head(deaths)
+```
