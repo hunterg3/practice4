@@ -1,0 +1,27 @@
+---
+title: "Practice 4 Part 2"
+author: "Hunter Goehring"
+date: "2023-04-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+    Statement: "Out of 173 listed Avengers, my analysis found that 69 had died at least one time after they joined the team."
+    
+
+```{r}
+av <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
+head(av)
+library(tidyverse)
+
+av1 = av %>% filter(Death1 == "YES")
+dim(av1)
+
+69/173
+```
+
+    According to the data, it is true approximately 40% of Avengers die at least once.
+
